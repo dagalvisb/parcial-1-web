@@ -11,17 +11,19 @@ fetch('data/datos.json')
                 
                 rec += `<h1>${reseña.usuario}</h1>
                     <p>${reseña.comentario}</p>
-                    <p>${reseña.calificacion}</p>
+                    <p>${reseña.calificacion} estrellas. </p>
                     <p>${reseña.fecha}</p>`
             });
             
+            let img = '';
+            informacion.imagenes.forEach(function(imagen){
+                img += `<img src="${imagen}" class="card-img-top" alt="...">`
+            })
 
             cards +=
             ` <div class="col">
                 <div class="card">
-                <img src="${informacion.imagenes[0]}" class="card-img-top" alt="...">
-                <img src="${informacion.imagenes[1]}" class="card-img-top" alt="...">
-                <img src="${informacion.imagenes[2]}" class="card-img-top" alt="...">
+                <div>${img}</div>
                     <div class="card-body">
                         <h3 class="card-title">${informacion.nombre}</h5>
                         <h5 class="card-title">${informacion.categoria}</h5>
